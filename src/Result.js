@@ -1,15 +1,15 @@
 import React from "react";
 
-export default function Result (props){
+export default function Result ({completed, log, showLog, setShowLog}){
     return(
         <>
             <div>
-                Выполнено {props.completed} заданий
+                Выполнено {completed} заданий
             </div>
-            <button onClick={() => props.setShowLog(true)}>show log</button>
-            <p>
-                {props.showLog && props.log.map(item => (<p className={'par-log'} key={item.id}>{item}</p>))}
-            </p>
+            <button onClick={() => setShowLog(true)}>show log</button>
+            <div>
+                {showLog && log.map((item, index) => (<p className={'par-log'} key={index}>{item}</p>))}
+            </div>
         </>
     )
 }

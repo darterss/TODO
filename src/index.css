@@ -1,13 +1,12 @@
 .listItem{
   list-style-type: none;
   display: flex;
-  justify-content: space-between;
   align-items: center;
   height: 50px;
 }
 
 .list{
-  width: 800px;
+  width: 900px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,4 +15,8 @@
 .par-log{
   font-size: 90%;
   line-height: 10%;
+}
+
+button{
+  margin: 0 10px;
 }
