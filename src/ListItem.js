@@ -1,4 +1,13 @@
 import React from "react";
+import StyledButton from "./styled-components/StyledButton";
+import styled from "styled-components";
+
+const StyledLi = styled.li`
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  height: 50px;
+`
 
 export default function ListItem ( {items, setItem, handleChange,completed, setCompleted} ){
 
@@ -10,15 +19,15 @@ export default function ListItem ( {items, setItem, handleChange,completed, setC
         if (item.checked === true) setCompleted(completed-1)
     }
     return (<>
-        {items.map(item => (<li key={item.id} className={`listItem ${item.id}`}>
+        {items.map(item => (<StyledLi key={item.id}>
             <label className={'label'}>
                 <input className={'checkbox'}
                        onChange={e => handleChange(e, item)}
                        type={'checkbox'}
                 />
                 {item.text}</label>
-            <button onClick={() => handleDeleteItem(item)}>Del</button>
+            <StyledButton onClick={() => handleDeleteItem(item)}>Del</StyledButton>
             <p>{item.showInfo && `Вы изменили задачу "${item.text}" ${item.date} на ${item.checked}`}</p>
-        </li>))}
+        </StyledLi>))}
     </>)
 }

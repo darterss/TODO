@@ -1,9 +1,16 @@
 import React, {useState} from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
 import ListItem from "./ListItem";
 import Result from "./Result";
 import AddItem from "./AddItem"
+import styled from "styled-components";
+
+const StyledUl = styled.ul`
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+`
 
 function ToDo(){
     const [items, setItem] = useState([
@@ -25,19 +32,16 @@ function ToDo(){
             return i
         })
         setItem(newItem)
-        //item.checked = !item.checked  //Работает так же. Так нельзя делать вместо предыдущих 5 строк?
-        //item.showInfo = true          //Работает так же. Так нельзя делать вместо предыдущих 5 строк?
-        //item.date = Date()            //Работает так же. Так нельзя делать вместо предыдущих 5 строк?
         setShowLog(false)
     }
 
     return (
         <>
             <AddItem items={items} setItem={setItem}/>
-            <ul className={'list'}>
+            <StyledUl>
                 <ListItem handleChange={handleChange} items={items} setItem={setItem}
                           completed={completed} setCompleted={setCompleted} />
-            </ul>
+            </StyledUl>
             <Result log={log} completed={completed} setShowLog={setShowLog} showLog={showLog} />
         </>
     )

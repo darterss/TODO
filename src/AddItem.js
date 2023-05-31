@@ -1,4 +1,5 @@
 import React, {useRef, useState} from "react";
+import StyledButton from "./styled-components/StyledButton";
 export default function AddItem( {items, setItem} ) {
     const [inputValue, setInputValue] = useState('')
     const inputRef = useRef()
@@ -24,6 +25,6 @@ export default function AddItem( {items, setItem} ) {
             <>
                 <input autoFocus={true} ref={inputRef} value={inputValue} onChange={e => handleChange(e)}
                        onKeyDown={e => handleKeyDown(e)} type={'text'} />
-                <button onClick={() => handleClick()}>Add</button>
+                <StyledButton onClick={() => handleClick()}>Add</StyledButton>
             </>
     )}
